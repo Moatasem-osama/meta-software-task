@@ -23,9 +23,9 @@
     {
         "name": "Bitcoin",
         "type": "Crypto",
-        "amount": 0.3,
-        "buyPrice": 30000,
-        "currentPrice": 42000
+        "amount": 3,
+        "buyPrice": 3000,
+        "currentPrice": 4000
     },
     {
         "name": "Ethereum",
