@@ -1,5 +1,8 @@
+"use client"
 import assets from "../../public/assets/assets.json";
-import Table from "../table";
+import Table from "../Table.tsx";
+import { useState } from "react";
+import AddForm from "../AddForm.tsx";
 
 export default function Dashboard() {
   const totalValue = assets.reduce(
@@ -15,10 +18,11 @@ export default function Dashboard() {
 
   const total = assets.length;
 
+  const [data , setData] = useState(assets);
   return (
     <div className="p-8">
       <h1>Dashboard</h1>
-      <div className="flex gap-5 ">
+      <div className="flex gap-5 md:flex-row flex-col my-5">
         <div className="p-4 border rounded shadow-sm flex-1">
             <h2 className="text-lg font-semibold">Total Assets</h2>
             <p className="text-2xl">{total}</p>
@@ -32,7 +36,8 @@ export default function Dashboard() {
             <p className="text-2xl">{totalProfit}</p>
         </div>
       </div>
-      <Table />
+      <AddForm setData={setData} />
+      <Table data={data}/>
     </div>
   );
 }

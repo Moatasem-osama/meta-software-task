@@ -3,7 +3,7 @@
 import { useState , useEffect } from "react";
 import assets from "../public/assets/assets.json";
 
-export default function Table() {
+export default function Table({data}) {
   const [searchTerm, setSearchTerm] = useState("");
 const [debouncedSearch, setDebouncedSearch] = useState("");
 const [sortBy, setSortBy] = useState("none");
@@ -11,7 +11,7 @@ const [sortBy, setSortBy] = useState("none");
 
   const [filter, setFilter] = useState("ALL");
   const filteredAssets =
-    filter === "ALL" ? assets : assets.filter((a) => a.type === filter);
+    filter === "ALL" ? data : data.filter((a) => a.type === filter);
   const searchedAssets = filteredAssets.filter((asset) =>
     asset.name.toLowerCase().includes(debouncedSearch.toLowerCase()),
   );
@@ -77,8 +77,8 @@ if (sortBy === "price-asc") {
       </div>
       <h1 className="text-2xl font-bold mb-6">Investment assets</h1>
 
-      <div className="p-10 relative overflow-x-auto shadow-sm rounded-md border border-gray-200">
-        <table className="p-10 w-full text-sm text-left rtl:text-right text-gray-800">
+      <div className="relative overflow-x-auto shadow-sm rounded-md border border-gray-200">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-800">
           <thead className="bg-gray-100 border-b border-gray-300">
             <tr>
               <th className="px-6 py-3 ">Name</th>

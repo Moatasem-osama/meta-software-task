@@ -6,7 +6,7 @@ export default function Home() {
   <>
   <h1>Next.js</h1>
   <p>Welcome here</p>
-  <Link href={"/dashboard"}></Link>
+  <Link href={"/dashboard"}>Dashboard</Link>
     </>
   );
 }
