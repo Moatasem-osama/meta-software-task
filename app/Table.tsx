@@ -1,16 +1,29 @@
 "use client";
 
-import { useState  } from "react";
+import { useState , useEffect } from "react";
 import assets from "../public/assets/assets.json";
 
 export default function Table() {
+  const [searchTerm, setSearchTerm] = useState("");
+const [debouncedSearch, setDebouncedSearch] = useState("");
 const [sortBy, setSortBy] = useState("none");
+
+
   const [filter, setFilter] = useState("ALL");
   const filteredAssets =
     filter === "ALL" ? assets : assets.filter((a) => a.type === filter);
+  const searchedAssets = filteredAssets.filter((asset) =>
+    asset.name.toLowerCase().includes(debouncedSearch.toLowerCase()),
+  );
+  useEffect(() => {
+    const timer = setTimeout(()=>{
+      setDebouncedSearch(searchTerm);
+    } , 500)
+      return () => clearTimeout(timer);
 
+  }, [searchTerm])
   
-const sortedAssets = [...filteredAssets];
+const sortedAssets = [...searchedAssets];
 if (sortBy === "price-asc") {
   sortedAssets.sort((a, b) => a.currentPrice - b.currentPrice);
 } else if (sortBy === "price-desc") {
@@ -22,7 +35,15 @@ if (sortBy === "price-asc") {
 }
   return (
     <div className="p-6">
-      
+      <div className="my-5">
+        <input
+          type="text"
+          placeholder="Search by name..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="border border-gray-300 rounded px-3 py-2 w-full md:w-1/3"
+        />
+      </div>
       <div className="my-5">
         <label className="mr-2 font-semibold">Filter by Type:</label>
 
