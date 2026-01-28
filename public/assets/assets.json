@@ -1,0 +1,51 @@
+[
+    {
+        "name": "Apple",
+        "type": "Stock",
+        "amount": 10,
+        "buyPrice": 150,
+        "currentPrice": 175
+    },
+    {
+        "name": "Tesla",
+        "type": "Stock",
+        "amount": 5,
+        "buyPrice": 700,
+        "currentPrice": 650
+    },
+    {
+        "name": "Amazon",
+        "type": "Stock",
+        "amount": 3,
+        "buyPrice": 3000,
+        "currentPrice": 3200
+    },
+    {
+        "name": "Bitcoin",
+        "type": "Crypto",
+        "amount": 0.3,
+        "buyPrice": 30000,
+        "currentPrice": 42000
+    },
+    {
+        "name": "Ethereum",
+        "type": "Crypto",
+        "amount": 2,
+        "buyPrice": 2000,
+        "currentPrice": 2500
+    },
+    {
+        "name": "Vanguard S&P500 Fund",
+        "type": "Mutual Fund",
+        "amount": 50,
+        "buyPrice": 100,
+        "currentPrice": 110
+    },
+    {
+        "name": "Vanguard ",
+        "type": "Mutual Fund",
+        "amount": 5,
+        "buyPrice": 1600,
+        "currentPrice": 1510
+    }
+]
