@@ -34,7 +34,7 @@ if (sortBy === "price-asc") {
   sortedAssets.sort((a, b) => b.name.localeCompare(a.name));
 }
   return (
-    <div className="p-6">
+    <div className="p-6 text-center">
       <div className="my-5">
         <input
           type="text"
@@ -44,6 +44,8 @@ if (sortBy === "price-asc") {
           className="border border-gray-300 rounded px-3 py-2 w-full md:w-1/3"
         />
       </div>
+      <div className="flex mx-auto justify-around gap-6 flex-wrap ">
+
       <div className="my-5">
         <label className="mr-2 font-semibold">Filter by Type:</label>
 
@@ -54,11 +56,12 @@ if (sortBy === "price-asc") {
           onChange={(e) => setFilter(e.target.value)}
           className="border border-gray-300 rounded px-3 py-2"
         >
-          <option value="ALL">ALL</option>
-          <option value="Stock">Stock</option>
-          <option value="Crypto">Crypto</option>
-          <option value="Mutual Fund">Mutual Fund</option>
+          <option value="ALL" className="text-black">ALL</option>
+          <option value="Stock" className="text-black">Stock</option>
+          <option value="Crypto" className="text-black">Crypto</option>
+          <option value="Mutual Fund" className="text-black">Mutual Fund</option>
         </select>
+      </div>
         <div className="my-5">
           <label className="mx-4 font-semibold">Sort by:</label>
         <select
@@ -68,14 +71,14 @@ if (sortBy === "price-asc") {
           onChange={(e) => setSortBy(e.target.value)}
           className="border border-gray-300 rounded px-3 py-2"
         >
-          <option value="price-asc">price-asc</option>
-          <option value="price-desc">price-desc</option>
-          <option value="name-asc">name-asc</option>
-          <option value="name-desc">name-desc</option>
+          <option value="price-asc" className="text-black">price-asc</option>
+          <option value="price-desc" className="text-black">price-desc</option>
+          <option value="name-asc" className="text-black">name-asc</option>
+          <option value="name-desc" className="text-black">name-desc</option>
         </select>
         </div>
       </div>
-      <h1 className="text-2xl font-bold mb-6">Investment assets</h1>
+      <h1 className="text-2xl font-bold text-transparent my-5 bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Investment assets</h1>
 
       <div className="relative overflow-x-auto shadow-sm rounded-md border border-gray-200">
         <table className="w-full text-sm text-left rtl:text-right text-gray-800">
@@ -97,9 +100,7 @@ if (sortBy === "price-asc") {
               return (
                 <tr
                   key={index}
-                  className={`border-b border-gray-200 ${
-                    index % 2 === 0 ? "bg-white" : "bg-gray-50"
-                  } hover:bg-gray-100`}
+                  className="bg-transparent text-white"
                 >
                   <th className="px-6 py-4  whitespace-nowrap">{asset.name}</th>
                   <td className="px-6 py-4">{asset.type}</td>
