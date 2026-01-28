@@ -3,7 +3,12 @@
 import { useState , useEffect } from "react";
 import assets from "../public/assets/assets.json";
 
-export default function Table({data}) {
+type Asset = typeof assets[number];
+
+interface TableProps {
+  data: Asset[];
+}
+export default function Table({ data }: TableProps) {
   const [searchTerm, setSearchTerm] = useState("");
 const [debouncedSearch, setDebouncedSearch] = useState("");
 const [sortBy, setSortBy] = useState("none");
