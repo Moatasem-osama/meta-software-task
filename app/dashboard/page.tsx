@@ -1,7 +1,7 @@
 "use client"
 import assets from "../../public/assets/assets.json";
 import Table from "../Table.tsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddForm from "../AddForm.tsx";
 
 export default function Dashboard() {
@@ -19,6 +19,22 @@ export default function Dashboard() {
   const total = assets.length;
 
   const [data , setData] = useState(assets);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setData(prev =>
+        prev.map(asset => {
+          const variation = (Math.random() - 0.5) * 10; // +/-5
+          return {
+            ...asset,
+            currentPrice: Math.max(0, asset.currentPrice + variation),
+          };
+        })
+      );
+    }, 5000); // كل 5 ثواني
+
+    return () => clearInterval(interval); // نظافة الinterval
+  }, []);
   return (
     <div className="p-8">
       <h1>Dashboard</h1>

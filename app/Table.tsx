@@ -105,7 +105,7 @@ if (sortBy === "price-asc") {
                   <td className="px-6 py-4">{asset.type}</td>
                   <td className="px-6 py-4">{asset.amount}</td>
                   <td className="px-6 py-4">${asset.buyPrice}</td>
-                  <td className="px-6 py-4">${asset.currentPrice}</td>
+                  <td className="px-6 py-4">${asset.currentPrice.toFixed(2)}</td>
                   <td
                     className={`px-6 py-4 ${
                       profit >= 0 ? "text-green-600" : "text-red-600"
