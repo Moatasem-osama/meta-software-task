@@ -1,4 +1,5 @@
 import assets from "../../public/assets/assets.json";
+import Table from "../table";
 
 export default function Dashboard() {
   const totalValue = assets.reduce(
@@ -31,6 +32,7 @@ export default function Dashboard() {
             <p className="text-2xl">{totalProfit}</p>
         </div>
       </div>
+      <Table />
     </div>
   );
 }
