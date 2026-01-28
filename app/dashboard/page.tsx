@@ -20,9 +20,8 @@ export default function Dashboard() {
           };
         })
       );
-    }, 5000); // كل 5 ثواني
-
-    return () => clearInterval(interval); // نظافة الinterval
+    }, 3000); 
+    return () => clearInterval(interval); 
   }, []);
   const totalValue = data.reduce(
     (sum, asset) => sum + asset.amount * asset.currentPrice,
@@ -58,7 +57,7 @@ export default function Dashboard() {
       <Charts data={data} />
       <AddForm setData={setData} />
       <Table data={data}/>
-      
+    
     </div>
   );
 }
